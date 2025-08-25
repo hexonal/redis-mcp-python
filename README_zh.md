@@ -27,7 +27,7 @@
 python --version
 
 # 使用 uvx 安装
-uvx --from git+https://github.com/your-username/redis-mcp-python.git redis-python-mcp
+uvx --from git+https://github.com/hexonal/redis-mcp-python.git redis-python-mcp
 ```
 
 ### 使用 pip
@@ -35,12 +35,12 @@ uvx --from git+https://github.com/your-username/redis-mcp-python.git redis-pytho
 # 确保 Python 3.10+
 python --version
 
-pip install git+https://github.com/your-username/redis-mcp-python.git
+pip install git+https://github.com/hexonal/redis-mcp-python.git
 ```
 
 ### 开发环境安装
 ```bash
-git clone https://github.com/your-username/redis-mcp-python.git
+git clone https://github.com/hexonal/redis-mcp-python.git
 cd redis-mcp-python
 
 # 创建 Python 3.10+ 虚拟环境
@@ -63,11 +63,11 @@ pip install -e .
       "command": "uvx",
       "args": [
         "--from", 
-        "git+https://github.com/your-username/redis-mcp-python.git",
+        "git+https://github.com/hexonal/redis-mcp-python.git",
         "redis-python-mcp"
       ],
       "env": {
-        "REDIS_URL": "redis://localhost:6379/0",
+        "REDIS_URL": "redis://localhost:6379",
         "REDIS_MODE": "single",
         "LARGE_KEY_THRESHOLD": "1048576",
         "ENABLE_DANGEROUS_COMMANDS": "false"
@@ -81,7 +81,7 @@ pip install -e .
 
 | 变量名 | 说明 | 默认值 | 示例 |
 |--------|------|--------|------|
-| `REDIS_URL` | 完整的 Redis 连接 URL | None | `redis://user:pass@host:6379/0` |
+| `REDIS_URL` | 完整的 Redis 连接 URL | None | `redis://user:pass@host:6379` |
 | `REDIS_HOST` | Redis 服务器主机 | `localhost` | `redis.example.com` |
 | `REDIS_PORT` | Redis 服务器端口 | `6379` | `6380` |
 | `REDIS_DB` | Redis 数据库编号 | `0` | `1` |
@@ -100,7 +100,7 @@ pip install -e .
 ```json
 {
   "env": {
-    "REDIS_URL": "redis://localhost:6379/0",
+    "REDIS_URL": "redis://localhost:6379",
     "REDIS_MODE": "single"
   }
 }

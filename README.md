@@ -27,7 +27,7 @@ A powerful Redis MCP server built with FastMCP that provides comprehensive Redis
 python --version
 
 # Install with uvx
-uvx --from git+https://github.com/your-username/redis-mcp-python.git redis-python-mcp
+uvx --from git+https://github.com/hexonal/redis-mcp-python.git redis-python-mcp
 ```
 
 ### Using pip
@@ -35,12 +35,12 @@ uvx --from git+https://github.com/your-username/redis-mcp-python.git redis-pytho
 # Ensure Python 3.10+
 python --version
 
-pip install git+https://github.com/your-username/redis-mcp-python.git
+pip install git+https://github.com/hexonal/redis-mcp-python.git
 ```
 
 ### Development Installation
 ```bash
-git clone https://github.com/your-username/redis-mcp-python.git
+git clone https://github.com/hexonal/redis-mcp-python.git
 cd redis-mcp-python
 
 # Create virtual environment with Python 3.10+
@@ -63,11 +63,11 @@ Add to your Claude Desktop configuration:
       "command": "uvx",
       "args": [
         "--from", 
-        "git+https://github.com/your-username/redis-mcp-python.git",
+        "git+https://github.com/hexonal/redis-mcp-python.git",
         "redis-python-mcp"
       ],
       "env": {
-        "REDIS_URL": "redis://localhost:6379/0",
+        "REDIS_URL": "redis://localhost:6379",
         "REDIS_MODE": "single",
         "LARGE_KEY_THRESHOLD": "1048576",
         "ENABLE_DANGEROUS_COMMANDS": "false"
@@ -81,7 +81,7 @@ Add to your Claude Desktop configuration:
 
 | Variable | Description | Default | Example |
 |----------|-------------|---------|---------|
-| `REDIS_URL` | Complete Redis connection URL | None | `redis://user:pass@host:6379/0` |
+| `REDIS_URL` | Complete Redis connection URL | None | `redis://user:pass@host:6379` |
 | `REDIS_HOST` | Redis server host | `localhost` | `redis.example.com` |
 | `REDIS_PORT` | Redis server port | `6379` | `6380` |
 | `REDIS_DB` | Redis database number | `0` | `1` |
@@ -100,7 +100,7 @@ Add to your Claude Desktop configuration:
 ```json
 {
   "env": {
-    "REDIS_URL": "redis://localhost:6379/0",
+    "REDIS_URL": "redis://localhost:6379",
     "REDIS_MODE": "single"
   }
 }
