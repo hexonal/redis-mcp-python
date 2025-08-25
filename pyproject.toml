@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redis-mcp-python"
+version = "0.1.0"
+description = "Redis MCP (Model Context Protocol) server with large key analysis, command execution, and database switching capabilities"
+readme = "README.md"
+authors = [
+    {name = "Redis MCP Team"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=0.1.0",
+    "redis>=4.0.0",
+    "redis-py-cluster>=2.1.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "typing-extensions>=4.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=22.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "coverage>=7.0.0"
+]
+
+[project.scripts]
+redis-mcp-server = "redis_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
